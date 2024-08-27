@@ -20,8 +20,20 @@
       {
         "command": "ossUploader.uploadFile",
         "title": "Upload File to OSS"
+      },
+      {
+        "command": "treeViewDemo.openProfile",
+        "title": "Open github Profile"
       }
     ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "treeViewDemo.openProfile",
+          "when": "view == treeViewDemo && viewItem ==speaker"
+        }
+      ]
+    },
     "viewsContainers": {
       "activitybar": [
         {
@@ -32,6 +44,12 @@
       ]
     },
     "views": {
+      "explorer": [
+        {
+          "id": "treeViewDemo",
+          "name": "Topic"
+        }
+      ],
       "ossUploader": [
         {
           "id": "ossUploaderView",

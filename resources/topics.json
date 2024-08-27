@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "speakerId": "ID-1",
+    "topic": "topic-1"
+  },
+  {
+    "id": "2",
+    "speakerId": "ID-2",
+    "topic": "topic-2"
+  },
+  {
+    "id": "3",
+    "speakerId": "ID-3",
+    "topic": "topic-3"
+  }
+]
