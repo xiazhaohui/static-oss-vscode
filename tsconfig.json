@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
 		"module": "Node16",
-		"target": "ES2022",
+		"target": "es2016",
 		"lib": [
-			"ES2022"
+			"es2016"
 		],
 		"sourceMap": true,
 		"rootDir": "src",

@@ -14,10 +14,33 @@
   "contributes": {
     "commands": [
       {
-        "command": "static-oss-vscode.helloWorld",
-        "title": "oss management"
+        "command": "ossUploader.configure",
+        "title": "Configure OSS Settings"
+      },
+      {
+        "command": "ossUploader.uploadFile",
+        "title": "Upload File to OSS"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ossUploader",
+          "title": "OSS Uploader",
+          "icon": "src/images/upload-icon.png"
+        }
+      ]
+    },
+    "views": {
+      "ossUploader": [
+        {
+          "id": "ossUploaderView",
+          "name": "Upload Files",
+          "icon": "src/images/upload-icon.png",
+          "contextualTitle": "Package Explorer"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
@@ -31,17 +54,23 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.92.0",
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
+    "@types/vscode": "^1.92.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.11.0",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.92.1",
-    "webpack-cli": "^5.1.4",
     "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0"
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@types/ali-oss": "^6.16.11",
+    "ali-oss": "^6.21.0",
+    "source-map-loader": "^5.0.0",
+    "xml2js": "^0.6.2"
   }
 }
