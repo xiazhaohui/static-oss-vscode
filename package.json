@@ -12,50 +12,74 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "viewsWelcome": [
       {
-        "command": "ossUploader.configure",
-        "title": "Configure OSS Settings"
-      },
-      {
-        "command": "ossUploader.uploadFile",
-        "title": "Upload File to OSS"
-      },
-      {
-        "command": "treeViewDemo.openProfile",
-        "title": "Open github Profile"
+        "view": "tree-demo-view-two",
+        "contents": "数据为空\n[添加](command:treeDemo.addEntry)"
       }
     ],
-    "menus": {
-      "view/item/context": [
-        {
-          "command": "treeViewDemo.openProfile",
-          "when": "view == treeViewDemo && viewItem ==speaker"
-        }
-      ]
-    },
+    "commands": [
+      {
+        "command": "test.one",
+        "title": "命令-1"
+      },
+      {
+        "command": "treeDemo.openUrl",
+        "title": "Open Url"
+      },
+      {
+        "command": "treeDemo.addEntry",
+        "title": "Add"
+      },
+      {
+        "command": "treeDemo.uploadFile",
+        "category": "upload",
+        "title": "上传文件",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "treeDemo.deleteFile",
+        "title": "删除"
+      }
+    ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "ossUploader",
-          "title": "OSS Uploader",
+          "id": "tree-demo-id",
+          "title": "Tree Demo Title",
           "icon": "src/images/upload-icon.png"
         }
       ]
     },
     "views": {
-      "explorer": [
+      "tree-demo-id": [
         {
-          "id": "treeViewDemo",
-          "name": "Topic"
+          "id": "tree-demo-view-one",
+          "name": "tree demo view name one",
+          "contextualTitle": "tree demo view context one"
+        },
+        {
+          "id": "tree-demo-view-two",
+          "name": "tree demo view name two",
+          "contextualTitle": "tree demo view context two"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "treeDemo.addEntry",
+          "when": "view == treeDemo"
+        },
+        {
+          "command": "treeDemo.uploadFile",
+          "group": "navigation"
         }
       ],
-      "ossUploader": [
+      "view/item/context": [
         {
-          "id": "ossUploaderView",
-          "name": "Upload Files",
-          "icon": "src/images/upload-icon.png",
-          "contextualTitle": "Package Explorer"
+          "command": "treeDemo.deleteFile",
+          "group": "operation"
         }
       ]
     }
@@ -88,6 +112,8 @@
   "dependencies": {
     "@types/ali-oss": "^6.16.11",
     "ali-oss": "^6.21.0",
+    "axios": "^1.7.5",
+    "lodash": "^4.17.21",
     "source-map-loader": "^5.0.0",
     "xml2js": "^0.6.2"
   }

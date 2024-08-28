@@ -8,7 +8,7 @@ import {
 import { Speaker } from "./types/speaker";
 import { Topic } from "./types/topic";
 
-export class TopicsDataProvider implements TreeDataProvider<Speaker | Topic> {
+export class TreeDemoProvider implements TreeDataProvider<Speaker | Topic> {
   getTreeItem(element: Speaker | Topic): TreeItem | Thenable<TreeItem> {
     if (element instanceof Speaker) {
       const treeItem = new TreeItem(
@@ -17,8 +17,8 @@ export class TopicsDataProvider implements TreeDataProvider<Speaker | Topic> {
       );
       treeItem.iconPath = new ThemeIcon("account");
       treeItem.command = {
-        command: "treeViewDemo.openProfile",
-        title: "Open githubProfile",
+        command: "treeDemo.openUrl",
+        title: "Open Url",
         arguments: [element],
       };
       treeItem.contextValue = "speaker";
